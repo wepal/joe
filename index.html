@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Tipps für Joe</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f6f8fa;
+      color: #24292f;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #24292f;
+      color: #fff;
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header svg {
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #8b949e;
+      margin-top: 4px;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: #fff;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    .intro strong {
+      color: #0969da;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .tip-card {
+      background: #fff;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 20px 24px;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .tip-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .tip-card .number {
+      display: inline-block;
+      background: #0969da;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .tip-card h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tip-card p {
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+
+    .tip-card code {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.85rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      color: #24292f;
+    }
+
+    footer {
+      text-align: center;
+      margin: 48px 0 24px;
+      font-size: 0.85rem;
+      color: #8b949e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- GitHub Octocat / logo mark -->
+    <svg height="40" width="40" viewBox="0 0 16 16" fill="#fff" aria-hidden="true">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+               0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+               -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87
+               2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+               0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+               .64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82
+               .44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75
+               -3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38
+               A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
+    <div>
+      <h1>GitHub Tipps für Joe</h1>
+      <p>Joes cooles Repository zum Ausprobieren von Git &amp; GitHub</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      Willkommen, <strong>Joe</strong>! Hier findest du einige praktische Tipps,
+      die dir den Einstieg in GitHub erleichtern. Viel Spaß beim Ausprobieren! 🚀
+    </div>
+
+    <div class="tips-grid">
+
+      <div class="tip-card">
+        <span class="number">1</span>
+        <h2>Repository erstellen</h2>
+        <p>
+          Starte immer mit einem neuen Repository. Klicke auf <strong>„New repository"</strong>
+          auf deiner GitHub-Startseite, gib einen Namen ein und initialisiere es
+          optional mit einer <code>README.md</code>. So hat dein Projekt sofort eine
+          Beschreibung und du kannst es direkt klonen.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <span class="number">2</span>
+        <h2>Commits sinnvoll benennen</h2>
+        <p>
+          Schreibe aussagekräftige Commit-Nachrichten, z. B.
+          <code>feat: Startseite hinzugefügt</code> oder
+          <code>fix: Tippfehler in README behoben</code>.
+          Gute Nachrichten erleichtern es dir und anderen, den Verlauf des Projekts
+          zu verstehen.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <span class="number">3</span>
+        <h2>Branches nutzen</h2>
+        <p>
+          Entwickle neue Features oder Bugfixes immer in einem eigenen Branch,
+          z. B. <code>git checkout -b feature/mein-feature</code>.
+          So bleibt der <code>main</code>-Branch stabil, und du kannst Änderungen
+          über einen <strong>Pull Request</strong> einreichen und reviewen lassen.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <span class="number">4</span>
+        <h2>Pull Requests &amp; Reviews</h2>
+        <p>
+          Öffne einen <strong>Pull Request (PR)</strong>, wenn dein Branch fertig ist.
+          Beschreibe, was du geändert hast, und lade Teammitglieder zum Review ein.
+          Feedback im PR hilft dabei, Fehler frühzeitig zu entdecken, bevor der Code
+          in <code>main</code> landet.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <span class="number">5</span>
+        <h2>Issues verwenden</h2>
+        <p>
+          Nutze <strong>Issues</strong>, um Aufgaben, Bugs oder Ideen festzuhalten.
+          Du kannst Issues mit Labels (z. B. <code>bug</code>, <code>enhancement</code>)
+          kategorisieren und sie Teammitgliedern zuweisen. So behältst du immer den
+          Überblick über offene Aufgaben.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <span class="number">6</span>
+        <h2>.gitignore nicht vergessen</h2>
+        <p>
+          Füge eine <code>.gitignore</code>-Datei hinzu, damit temporäre Dateien,
+          Passwörter oder Build-Artefakte (z. B. <code>node_modules/</code>,
+          <code>.env</code>) nicht ins Repository gelangen.
+          GitHub bietet fertige Vorlagen für viele Programmiersprachen an.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    Made with ❤️ for Joe &nbsp;·&nbsp;
+    <a href="https://docs.github.com/de" target="_blank" rel="noopener">GitHub Docs</a>
+  </footer>
+
+</body>
+</html>
