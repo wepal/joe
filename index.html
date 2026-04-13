@@ -120,6 +120,147 @@
       font-size: 0.85rem;
       color: #8b949e;
     }
+
+    /* Tutorial Section */
+    .tutorial-section {
+      margin-top: 48px;
+    }
+
+    .tutorial-section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #24292f;
+      border-bottom: 2px solid #d0d7de;
+      padding-bottom: 12px;
+    }
+
+    .tutorial-step {
+      background: #fff;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .tutorial-step-header {
+      background: #f6f8fa;
+      border-bottom: 1px solid #d0d7de;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tutorial-step-header .step-badge {
+      background: #0969da;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      padding: 2px 10px;
+      white-space: nowrap;
+    }
+
+    .tutorial-step-header h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #24292f;
+    }
+
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid #d0d7de;
+      background: #fff;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #57606a;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab-btn:hover {
+      color: #0969da;
+    }
+
+    .tab-btn.active {
+      color: #0969da;
+      border-bottom-color: #0969da;
+      font-weight: 600;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px 24px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content ol {
+      padding-left: 20px;
+    }
+
+    .tab-content ol li {
+      font-size: 0.92rem;
+      color: #24292f;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .tab-content ol li:last-child {
+      margin-bottom: 0;
+    }
+
+    .tab-content code {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.85rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      color: #24292f;
+    }
+
+    .code-block {
+      background: #161b22;
+      color: #e6edf3;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 10px 0;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .code-block .comment {
+      color: #8b949e;
+    }
+
+    .note {
+      background: #ddf4ff;
+      border: 1px solid #54aeff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: #0550ae;
+      margin-top: 12px;
+    }
+
+    .tab-icon {
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
@@ -219,6 +360,217 @@
       </div>
 
     </div>
+    <!-- ===== TUTORIAL SECTION ===== -->
+    <div class="tutorial-section">
+      <h2>Tutorial: Git-Grundlagen in der Praxis</h2>
+
+      <!-- STEP 1: Clone -->
+      <div class="tutorial-step">
+        <div class="tutorial-step-header">
+          <span class="step-badge">Schritt 1</span>
+          <h3>Repository klonen</h3>
+        </div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab(this, 'clone-cli')"><span class="tab-icon">💻</span>CLI</button>
+          <button class="tab-btn" onclick="switchTab(this, 'clone-vscode')"><span class="tab-icon">🔵</span>VSCode</button>
+          <button class="tab-btn" onclick="switchTab(this, 'clone-github')"><span class="tab-icon">🐙</span>GitHub</button>
+        </div>
+        <div id="clone-cli" class="tab-content active">
+          <ol>
+            <li>Öffne ein Terminal (z. B. PowerShell, Git Bash oder das integrierte Terminal).</li>
+            <li>Gehe auf GitHub zur gewünschten Repository-Seite und klicke auf den grünen <strong>„Code"</strong>-Button.</li>
+            <li>Kopiere die HTTPS-URL (z. B. <code>https://github.com/nutzer/repo.git</code>).</li>
+            <li>Führe im Terminal folgenden Befehl aus:
+              <div class="code-block"><span class="comment"># Repository in den aktuellen Ordner klonen</span>
+git clone https://github.com/nutzer/repo.git
+
+<span class="comment"># Danach in den neuen Ordner wechseln</span>
+cd repo</div>
+            </li>
+          </ol>
+          <div class="note">Das Repository wird als neuer Unterordner angelegt. Git lädt automatisch alle Dateien und den gesamten Verlauf herunter.</div>
+        </div>
+        <div id="clone-vscode" class="tab-content">
+          <ol>
+            <li>Öffne VSCode. Wenn noch kein Ordner geöffnet ist, siehst du auf der Startseite den Button <strong>„Clone Git Repository…"</strong> – klicke darauf.</li>
+            <li>Alternativ: Drücke <code>Strg+Shift+P</code> und tippe <strong>„Git: Clone"</strong>, dann Enter.</li>
+            <li>Füge die Repository-URL ein (z. B. <code>https://github.com/nutzer/repo.git</code>) und drücke Enter.</li>
+            <li>Wähle einen lokalen Ordner als Ziel aus.</li>
+            <li>VSCode fragt, ob du das geklonte Repository direkt öffnen möchtest – klicke auf <strong>„Open"</strong>.</li>
+          </ol>
+          <div class="note">Die URL findest du auf GitHub unter dem grünen „Code"-Button → HTTPS-Tab.</div>
+        </div>
+        <div id="clone-github" class="tab-content">
+          <ol>
+            <li>Öffne das Repository auf <strong>github.com</strong>.</li>
+            <li>Klicke auf den grünen <strong>„Code"</strong>-Button.</li>
+            <li>Wähle den Tab <strong>„GitHub Desktop"</strong> und klicke auf <strong>„Open with GitHub Desktop"</strong> – das öffnet GitHub Desktop und klont das Repo automatisch.</li>
+            <li>Wenn du lieber direkt im Browser arbeitest (ohne lokale Kopie), klicke stattdessen auf <strong>„Codespace"</strong>, um eine cloudbasierte Entwicklungsumgebung zu starten.</li>
+          </ol>
+          <div class="note">Für reines Bearbeiten einzelner Dateien kannst du diese auch direkt im Browser öffnen und bearbeiten – ohne klonen.</div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Branch -->
+      <div class="tutorial-step">
+        <div class="tutorial-step-header">
+          <span class="step-badge">Schritt 2</span>
+          <h3>Branch erstellen</h3>
+        </div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab(this, 'branch-cli')"><span class="tab-icon">💻</span>CLI</button>
+          <button class="tab-btn" onclick="switchTab(this, 'branch-vscode')"><span class="tab-icon">🔵</span>VSCode</button>
+          <button class="tab-btn" onclick="switchTab(this, 'branch-github')"><span class="tab-icon">🐙</span>GitHub</button>
+        </div>
+        <div id="branch-cli" class="tab-content active">
+          <ol>
+            <li>Stelle sicher, dass du im Repository-Ordner bist und der <code>main</code>-Branch aktuell ist:
+              <div class="code-block">git checkout main
+git pull</div>
+            </li>
+            <li>Erstelle einen neuen Branch und wechsle direkt dazu:
+              <div class="code-block"><span class="comment"># Branch erstellen und sofort wechseln</span>
+git checkout -b feature/mein-feature
+
+<span class="comment"># Alternativ (moderner Weg):</span>
+git switch -c feature/mein-feature</div>
+            </li>
+            <li>Überprüfe, auf welchem Branch du bist:
+              <div class="code-block">git branch</div>
+            </li>
+          </ol>
+          <div class="note">Benenne Branches aussagekräftig, z. B. <code>feature/login-seite</code> oder <code>fix/tippfehler-header</code>.</div>
+        </div>
+        <div id="branch-vscode" class="tab-content">
+          <ol>
+            <li>Klicke unten links in der Statusleiste auf den aktuellen Branch-Namen (z. B. <strong>„main"</strong>).</li>
+            <li>Es öffnet sich eine Dropdown-Liste – klicke auf <strong>„+ Create new branch…"</strong>.</li>
+            <li>Gib den Namen des neuen Branches ein (z. B. <code>feature/mein-feature</code>) und drücke Enter.</li>
+            <li>VSCode wechselt automatisch auf den neuen Branch – erkennbar unten links am aktualisierten Branch-Namen.</li>
+          </ol>
+          <div class="note">Alternativ: <code>Strg+Shift+P</code> → <strong>„Git: Create Branch"</strong> eintippen.</div>
+        </div>
+        <div id="branch-github" class="tab-content">
+          <ol>
+            <li>Öffne dein Repository auf <strong>github.com</strong>.</li>
+            <li>Klicke oben links auf das Branch-Dropdown (zeigt z. B. <strong>„main"</strong> an).</li>
+            <li>Tippe den Namen des neuen Branches in das Suchfeld (z. B. <code>feature/mein-feature</code>).</li>
+            <li>Es erscheint die Option <strong>„Create branch: feature/mein-feature from 'main'"</strong> – klicke darauf.</li>
+          </ol>
+          <div class="note">Branches, die direkt auf GitHub erstellt werden, existieren zunächst nur remote. Führe lokal <code>git pull</code> aus, um sie herunterzuladen.</div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Commit -->
+      <div class="tutorial-step">
+        <div class="tutorial-step-header">
+          <span class="step-badge">Schritt 3</span>
+          <h3>Änderungen committen</h3>
+        </div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab(this, 'commit-cli')"><span class="tab-icon">💻</span>CLI</button>
+          <button class="tab-btn" onclick="switchTab(this, 'commit-vscode')"><span class="tab-icon">🔵</span>VSCode</button>
+          <button class="tab-btn" onclick="switchTab(this, 'commit-github')"><span class="tab-icon">🐙</span>GitHub</button>
+        </div>
+        <div id="commit-cli" class="tab-content active">
+          <ol>
+            <li>Schaue dir an, was sich geändert hat:
+              <div class="code-block">git status</div>
+            </li>
+            <li>Füge die geänderten Dateien zur sogenannten „Staging Area" hinzu:
+              <div class="code-block"><span class="comment"># Eine einzelne Datei stagen</span>
+git add index.html
+
+<span class="comment"># Alle geänderten Dateien auf einmal stagen</span>
+git add .</div>
+            </li>
+            <li>Erstelle den Commit mit einer aussagekräftigen Nachricht:
+              <div class="code-block">git commit -m "feat: Startseite mit Tutorial ergänzt"</div>
+            </li>
+            <li>Lade den Branch auf GitHub hoch:
+              <div class="code-block"><span class="comment"># Beim ersten Mal mit -u, damit Git den Remote-Branch kennt</span>
+git push -u origin feature/mein-feature
+
+<span class="comment"># Danach reicht einfach:</span>
+git push</div>
+            </li>
+          </ol>
+        </div>
+        <div id="commit-vscode" class="tab-content">
+          <ol>
+            <li>Klicke in der linken Sidebar auf das <strong>Source Control</strong>-Icon (das Verzweigungs-Symbol, oder <code>Strg+Shift+G</code>).</li>
+            <li>Unter <strong>„Changes"</strong> siehst du alle geänderten Dateien. Klicke auf das <strong>„+"</strong>-Icon neben einer Datei, um sie zu stagen (oder auf das „+" oben, um alle zu stagen).</li>
+            <li>Tippe oben im Textfeld eine Commit-Nachricht ein, z. B. <code>feat: Startseite aktualisiert</code>.</li>
+            <li>Klicke auf den blauen <strong>„Commit"</strong>-Button.</li>
+            <li>Klicke danach auf <strong>„Sync Changes"</strong> (oder <strong>„Publish Branch"</strong> beim ersten Mal), um den Commit auf GitHub zu pushen.</li>
+          </ol>
+          <div class="note">VSCode zeigt im Commit-Button auch an, wie viele Commits noch nicht gepusht wurden (z. B. „Commit ↑1").</div>
+        </div>
+        <div id="commit-github" class="tab-content">
+          <ol>
+            <li>Navigiere im Browser zu der Datei, die du bearbeiten möchtest.</li>
+            <li>Klicke oben rechts auf das <strong>Stift-Icon</strong> (Edit this file).</li>
+            <li>Nimm deine Änderungen direkt im Browser vor.</li>
+            <li>Scrolle nach unten zum Abschnitt <strong>„Commit changes"</strong>.</li>
+            <li>Gib eine kurze Beschreibung ein, wähle optional <strong>„Commit directly to the [branch]-branch"</strong> und klicke auf <strong>„Commit changes"</strong>.</li>
+          </ol>
+          <div class="note">Diese Methode eignet sich nur für kleine Änderungen an einzelnen Dateien. Für größere Änderungen lieber CLI oder VSCode nutzen.</div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Pull Request -->
+      <div class="tutorial-step">
+        <div class="tutorial-step-header">
+          <span class="step-badge">Schritt 4</span>
+          <h3>Pull Request erstellen</h3>
+        </div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab(this, 'pr-cli')"><span class="tab-icon">💻</span>CLI</button>
+          <button class="tab-btn" onclick="switchTab(this, 'pr-vscode')"><span class="tab-icon">🔵</span>VSCode</button>
+          <button class="tab-btn" onclick="switchTab(this, 'pr-github')"><span class="tab-icon">🐙</span>GitHub</button>
+        </div>
+        <div id="pr-cli" class="tab-content active">
+          <ol>
+            <li>Stelle sicher, dass dein Branch gepusht ist (siehe Schritt 3).</li>
+            <li>Installiere die <strong>GitHub CLI</strong> (<code>gh</code>) von <code>cli.github.com</code> und melde dich an:
+              <div class="code-block">gh auth login</div>
+            </li>
+            <li>Erstelle den Pull Request direkt aus dem Terminal:
+              <div class="code-block"><span class="comment"># Interaktiver Assistent führt dich durch den Prozess</span>
+gh pr create
+
+<span class="comment"># Oder direkt mit Titel und Beschreibung:</span>
+gh pr create --title "feat: Tutorial hinzugefügt" --body "Beschreibung der Änderungen"</div>
+            </li>
+            <li>Du erhältst einen Link zum PR auf GitHub, den du im Browser öffnen kannst.</li>
+          </ol>
+          <div class="note"><code>gh pr list</code> zeigt alle offenen PRs, <code>gh pr merge</code> merged einen PR direkt aus dem Terminal.</div>
+        </div>
+        <div id="pr-vscode" class="tab-content">
+          <ol>
+            <li>Installiere die VSCode-Erweiterung <strong>„GitHub Pull Requests"</strong> (von GitHub).</li>
+            <li>Nach dem Pushen deines Branches erscheint in der Source-Control-Ansicht ein Button <strong>„Create Pull Request"</strong> – klicke darauf.</li>
+            <li>Es öffnet sich ein Panel, in dem du Titel, Beschreibung, Reviewer und Ziel-Branch festlegen kannst.</li>
+            <li>Klicke auf <strong>„Create"</strong>. Der PR wird direkt auf GitHub erstellt.</li>
+            <li>Du kannst PRs auch direkt in VSCode reviewen: Unter dem GitHub-Icon in der Sidebar findest du alle offenen PRs.</li>
+          </ol>
+          <div class="note">Die Erweiterung erlaubt es dir, Kommentare zu lesen und zu schreiben, ohne den Browser zu öffnen.</div>
+        </div>
+        <div id="pr-github" class="tab-content">
+          <ol>
+            <li>Gehe auf <strong>github.com</strong> zu deinem Repository. Nach einem frischen Push erscheint oben ein gelbes Banner <strong>„Compare &amp; pull request"</strong> – klicke darauf.</li>
+            <li>Alternativ: Klicke auf den Tab <strong>„Pull requests"</strong> → <strong>„New pull request"</strong>.</li>
+            <li>Wähle als <strong>base</strong> den Ziel-Branch (meistens <code>main</code>) und als <strong>compare</strong> deinen Feature-Branch.</li>
+            <li>Füge einen Titel und eine Beschreibung hinzu, weise optional Reviewer zu.</li>
+            <li>Klicke auf <strong>„Create pull request"</strong>. Sobald alle Reviewer zugestimmt haben, kannst du auf <strong>„Merge pull request"</strong> klicken.</li>
+          </ol>
+          <div class="note">Nach dem Merge kannst du den Feature-Branch mit „Delete branch" direkt auf GitHub löschen, um das Repository aufgeräumt zu halten.</div>
+        </div>
+      </div>
+
+    </div>
+    <!-- ===== END TUTORIAL ===== -->
+
   </main>
 
   <footer>
@@ -226,5 +578,19 @@
     <a href="https://docs.github.com/de" target="_blank" rel="noopener">GitHub Docs</a>
   </footer>
 
+  <script>
+    function switchTab(btn, targetId) {
+      // Find the parent tutorial-step
+      const step = btn.closest('.tutorial-step');
+
+      // Deactivate all tabs and contents in this step
+      step.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      step.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Activate the clicked tab and corresponding content
+      btn.classList.add('active');
+      step.querySelector('#' + targetId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
